@@ -35,15 +35,15 @@ namespace BdBiblioteca
         public string formato { get; set; }
 
 
-        [DataType(DataType.Duration)] // nos define cual es el tipo q utilizamos
-        [Required(ErrorMessage = "La duración es requerida"), MaxLength(20)] //sea obligatorio 
+        
+        [Required(ErrorMessage = "La duración")] //sea obligatorio 
         [Display(Name = "Duración")]
         public double duracion { get; set; }
 
 
         [DataType(DataType.Text)] // nos define cual es el tipo q utilizamos
-        [Required(ErrorMessage = "La categoría es requerida"), MaxLength(20)] //sea obligatorio 
-        [Display(Name = "Categorría")]
+        [Required(ErrorMessage = "La categoría es requerida")] //sea obligatorio 
+        [Display(Name = "Categoría")]
         public int categoria { get; set; }
     
         public virtual CATEGORIA CATEGORIA1 { get; set; }
