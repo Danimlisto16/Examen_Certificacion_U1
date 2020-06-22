@@ -1,0 +1,33 @@
+﻿@model IEnumerable<BdBiblioteca.CATEGORIA>
+
+@{
+    ViewBag.Title = "Mostrando categorías";
+}
+
+<h2>Mostrando categorías</h2>
+
+<p>
+    @Html.ActionLink("Agregar una nueva categoria", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.ActionLink(" ", "Edit", new { id=item.id_categoria }, htmlAttributes: new { @class = "btn btn-sm btn-warning glyphicon glyphicon-pencil", @title = "Editar" }) |
+            @Html.ActionLink(" ", "Details", new { id=item.id_categoria }, htmlAttributes: new { @class = "btn btn-sm btn-primary glyphicon glyphicon-search", @title = "Editar" }) |
+            @Html.ActionLink(" ", "Delete", new { id=item.id_categoria }, htmlAttributes: new { @class = "btn btn-sm btn-danger glyphicon glyphicon-trash", @title = "Editar" })
+        </td>
+    </tr>
+}
+
+</table>

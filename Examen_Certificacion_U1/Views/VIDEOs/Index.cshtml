@@ -1,0 +1,57 @@
+﻿@model IEnumerable<BdBiblioteca.VIDEO>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Mostrando Videos</h2>
+
+<p>
+    @Html.ActionLink("Agregar nuevo video", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Título
+        </th>
+        <th>
+            Fecha publicación
+        </th>
+        <th>
+            Formato
+        </th>
+        <th>
+            Duracion (minutos)
+        </th>
+        <th>
+            Categoría
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.titulo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaPublicacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.formato)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.duracion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CATEGORIA1.nombre)
+        </td>
+        <td>
+            @Html.ActionLink(" ", "Edit", new { id=item.id_video }, htmlAttributes: new { @class = "btn btn-sm btn-warning glyphicon glyphicon-pencil", @title = "Editar" }) |
+            @Html.ActionLink(" ", "Details", new { id=item.id_video }, htmlAttributes: new { @class = "btn btn-sm btn-primary glyphicon glyphicon-search", @title = "Ver" }) |
+            @Html.ActionLink(" ", "Delete", new { id=item.id_video }, htmlAttributes: new { @class = "btn btn-sm btn-danger glyphicon glyphicon-trash", @title = "Eliminar" })
+        </td>
+    </tr>
+}
+
+</table>

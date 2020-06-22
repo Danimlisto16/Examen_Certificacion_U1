@@ -1,0 +1,63 @@
+﻿@model IEnumerable<BdBiblioteca.LIBRO>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Mostrando Libros</h2>
+
+<p>
+    @Html.ActionLink("Agregar nuevo libro", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Título
+        </th>
+        <th>
+            Autor
+        </th>
+        <th>
+            Código ISBN
+        </th>
+        <th>
+            Fecha publicación
+        </th>
+        <th>
+            Cantidad
+        </th>
+        <th>
+            Categoría
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.titulo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.autor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ISBN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaPublicacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ejemplar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CATEGORIA1.nombre)
+        </td>
+        <td>
+            @Html.ActionLink(" ", "Edit", new { id=item.id_libro }, htmlAttributes: new { @class = "btn btn-sm btn-warning glyphicon glyphicon-pencil", @title = "Editar" }) |
+            @Html.ActionLink(" ", "Details", new { id=item.id_libro }, htmlAttributes: new { @class = "btn btn-sm btn-primary glyphicon glyphicon-search", @title = "Ver" }) |
+            @Html.ActionLink(" ", "Delete", new { id=item.id_libro }, htmlAttributes: new { @class = "btn btn-sm btn-danger glyphicon glyphicon-trash", @title = "Eliminar" })
+        </td>
+    </tr>
+}
+
+</table>
